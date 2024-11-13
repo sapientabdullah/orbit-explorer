@@ -118,7 +118,12 @@ export default function SolarSystem() {
       28,
       "/mercury"
     );
-    const venus = createPlanets(5.8, "src/assets/Venus (1).jpg", 44, "/venus");
+    const venus = createPlanets(
+      5.8,
+      "src/assets/venus/Color Map.jpg",
+      44,
+      "/venus"
+    );
     const earth = createPlanets(
       6,
       "src/assets/earth/Earth Texture Map.jpg",
@@ -156,7 +161,7 @@ export default function SolarSystem() {
     );
     const neptune = createPlanets(
       7,
-      "src/assets/Neptune (1).jpg",
+      "src/assets/neptune/Color Map.jpg",
       200,
       "/neptune"
     );
