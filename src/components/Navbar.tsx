@@ -21,7 +21,7 @@ export default function Navbar() {
     >
       <h1 style={{ color: "#fff", marginRight: "auto" }}>
         <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
-          Orbital Explorer
+          Orbit Explorer
         </Link>
       </h1>
       {planets.map((planet) => (
