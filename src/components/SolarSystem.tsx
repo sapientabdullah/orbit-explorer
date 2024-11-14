@@ -265,9 +265,13 @@ export default function SolarSystem() {
 
     renderer.setAnimationLoop(animate);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(-1, 0, 1);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    directionalLight.position.set(-50, 50, 50);
     directionalLight.castShadow = true;
+    directionalLight.shadow.bias = -0.0001;
+    directionalLight.shadow.mapSize.width = 2048;
+    directionalLight.shadow.mapSize.height = 2048;
+
     scene.add(directionalLight);
 
     const starsTextureUrl = "/assets/Stars from Solar System.jpg";
