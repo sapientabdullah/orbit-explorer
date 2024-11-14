@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/Addons.js";
 
-export default function Uranus() {
+export default function Saturn() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const [dimensions, setDimensions] = useState({
@@ -39,19 +39,20 @@ export default function Uranus() {
     });
     renderer.setSize(width, height);
 
-    const uranusGroup = new THREE.Group();
-    uranusGroup.rotation.z = (98 * Math.PI) / 180;
-    scene.add(uranusGroup);
+    const saturnGroup = new THREE.Group();
+    saturnGroup.rotation.z = (26.7 * Math.PI) / 180;
+    scene.add(saturnGroup);
 
     const geometry = new THREE.IcosahedronGeometry(2.5, 12);
     const material = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("/assets/uranus/Color Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/saturn/Color Map.jpg"),
     });
-    const uranus = new THREE.Mesh(geometry, material);
-    uranusGroup.add(uranus);
+    const saturn = new THREE.Mesh(geometry, material);
+    saturnGroup.add(saturn);
 
+    // Saturn's rings
     const ringMaterial = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("/assets/uranus/Ring.png"),
+      map: new THREE.TextureLoader().load("/assets/saturn/Ring.png"),
       side: THREE.DoubleSide,
       transparent: true,
       opacity: 1.0,
@@ -60,10 +61,10 @@ export default function Uranus() {
     const innerRadius = 3.5;
     const outerRadius = 5;
     const ringGeometry = new THREE.RingGeometry(innerRadius, outerRadius, 64);
-    ringGeometry.rotateX(Math.PI / 2 + (98 * Math.PI) / 180);
+    ringGeometry.rotateX(Math.PI / 2 + (26.7 * Math.PI) / 180);
 
-    const uranusRing = new THREE.Mesh(ringGeometry, ringMaterial);
-    uranusGroup.add(uranusRing);
+    const saturnRing = new THREE.Mesh(ringGeometry, ringMaterial);
+    saturnGroup.add(saturnRing);
 
     const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
@@ -78,26 +79,27 @@ export default function Uranus() {
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(-2, 0, 1);
-    directionalLight.castShadow = true;
     scene.add(directionalLight);
 
     const glowGeometry = new THREE.SphereGeometry(2.56, 30, 30);
     const glowMaterial = new THREE.MeshStandardMaterial({
-      color: 0x00ffcc,
-      emissive: 0x00ffcc,
+      color: 0xffcc00,
+      emissive: 0xffcc00,
       emissiveIntensity: 0.5,
       transparent: true,
-      opacity: 0.1,
+      opacity: 0.2,
     });
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     scene.add(glow);
 
+    // Orbit controls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
 
+    // Animation function
     const animate = () => {
       requestAnimationFrame(animate);
-      uranus.rotation.y -= 0.01;
+      saturn.rotation.y -= 0.01;
       controls.update();
       renderer.render(scene, camera);
     };

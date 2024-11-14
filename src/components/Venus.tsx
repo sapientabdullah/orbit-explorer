@@ -41,7 +41,6 @@ export default function Venus() {
 
     const venusGroup = new THREE.Group();
     venusGroup.rotation.y = (-0.034 * Math.PI) / 180;
-
     venusGroup.rotation.x = (177.4 * Math.PI) / 180;
     scene.add(venusGroup);
 
@@ -55,7 +54,7 @@ export default function Venus() {
     const bumpsMaterial = new THREE.MeshStandardMaterial({
       map: new THREE.TextureLoader().load("/assets/venus/Bump Map.jpg"),
       transparent: true,
-      opacity: 0.1,
+      opacity: 0.05, // Slight opacity for bump map to reflect Venus' smooth surface
     });
     const bumps = new THREE.Mesh(geometry, bumpsMaterial);
     venusGroup.add(bumps);
@@ -91,8 +90,8 @@ export default function Venus() {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      venus.rotation.y += 0.01;
-      bumps.rotation.y += 0.01;
+      venus.rotation.y -= 0.01;
+      bumps.rotation.y -= 0.01;
       controls.update();
       renderer.render(scene, camera);
     };

@@ -89,8 +89,8 @@ export default function Mercury() {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      mercury.rotation.y += 0.01;
-      bumps.rotation.y += 0.01;
+      mercury.rotation.y += 0.001;
+      bumps.rotation.y += 0.001;
       controls.update();
       renderer.render(scene, camera);
     };

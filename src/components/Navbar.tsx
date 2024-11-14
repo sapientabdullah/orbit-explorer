@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { planets } from "../constants/planetsConstants";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
+
   return (
     <nav
       style={{
@@ -29,12 +31,15 @@ export default function Navbar() {
           key={planet.name}
           onClick={() => navigate(planet.path)}
           style={{
-            backgroundColor: "transparent",
+            backgroundColor:
+              location.pathname === planet.path ? "#555" : "transparent",
             border: "none",
             color: "#fff",
             cursor: "pointer",
             fontSize: "1rem",
             textDecoration: "none",
+            padding: "5px 10px",
+            borderRadius: "5px",
           }}
         >
           {planet.name}

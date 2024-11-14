@@ -126,11 +126,11 @@ export default function Earth() {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      earth.rotation.y += 0.01;
-      lights.rotation.y += 0.01;
-      bumps.rotation.y += 0.01;
-      ice.rotation.y += 0.01;
-      clouds.rotation.y += 0.014;
+      earth.rotation.y += 0.005;
+      lights.rotation.y += 0.005;
+      bumps.rotation.y += 0.005;
+      ice.rotation.y += 0.005;
+      clouds.rotation.y += 0.007;
       controls.update();
       renderer.render(scene, camera);
     };

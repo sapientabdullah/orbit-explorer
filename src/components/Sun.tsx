@@ -80,7 +80,7 @@ export default function Sun() {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      sun.rotation.y += 0.004;
+      sun.rotation.y += 0.0003;
       controls.update();
       renderer.render(scene, camera);
     };

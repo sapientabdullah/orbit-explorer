@@ -82,7 +82,7 @@ export default function Jupiter() {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      jupiter.rotation.y += 0.004;
+      jupiter.rotation.y += 0.02;
       controls.update();
       renderer.render(scene, camera);
     };

@@ -40,9 +40,7 @@ export default function Mars() {
     renderer.setSize(width, height);
 
     const marsGroup = new THREE.Group();
-    marsGroup.rotation.y = (-0.034 * Math.PI) / 180;
-
-    marsGroup.rotation.x = (177.4 * Math.PI) / 180;
+    marsGroup.rotation.z = (25.2 * Math.PI) / 180;
     scene.add(marsGroup);
 
     const geometry = new THREE.IcosahedronGeometry(2.5, 12);

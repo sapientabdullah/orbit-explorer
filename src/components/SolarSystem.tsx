@@ -274,7 +274,7 @@ export default function SolarSystem() {
 
     scene.add(directionalLight);
 
-    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "public/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,
@@ -284,6 +284,7 @@ export default function SolarSystem() {
       starsTextureUrl,
       starsTextureUrl,
     ]);
+
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("click", onMouseClick);

@@ -91,8 +91,8 @@ export default function Pluto() {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      pluto.rotation.y += 0.01;
-      bumps.rotation.y += 0.01;
+      pluto.rotation.y -= 0.003;
+      bumps.rotation.y -= 0.003;
       controls.update();
       renderer.render(scene, camera);
     };

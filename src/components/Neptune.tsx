@@ -50,9 +50,19 @@ export default function Neptune() {
     const neptune = new THREE.Mesh(geometry, material);
     neptuneGroup.add(neptune);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    const glowGeometry = new THREE.SphereGeometry(2.56, 30, 30);
+    const glowMaterial = new THREE.MeshStandardMaterial({
+      color: 0x0000ff,
+      emissive: 0x0000ff,
+      emissiveIntensity: 0.3,
+      transparent: true,
+      opacity: 0.2,
+    });
+    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+    scene.add(glow);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
     directionalLight.position.set(-2, 0, 1);
-    directionalLight.castShadow = true;
     scene.add(directionalLight);
 
     const starsTextureUrl = "/assets/Stars from Solar System.jpg";
@@ -71,7 +81,7 @@ export default function Neptune() {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      neptuneGroup.rotation.y += 0.01;
+      neptuneGroup.rotation.y -= 0.01;
       controls.update();
       renderer.render(scene, camera);
     };
