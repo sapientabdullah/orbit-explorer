@@ -46,7 +46,7 @@ export default function Earth() {
     const geometry = new THREE.IcosahedronGeometry(2.5, 12);
     const material = new THREE.MeshStandardMaterial({
       map: new THREE.TextureLoader().load(
-        "src/assets/earth/Earth Texture Map.jpg"
+        "/assets/earth/Earth Texture Map.jpg"
       ),
     });
     const earth = new THREE.Mesh(geometry, material);
@@ -54,7 +54,7 @@ export default function Earth() {
 
     const lightsMaterial = new THREE.MeshStandardMaterial({
       map: new THREE.TextureLoader().load(
-        "src/assets/earth/Earth Lights Texture Map.jpg"
+        "/assets/earth/Earth Lights Texture Map.jpg"
       ),
       blending: THREE.AdditiveBlending,
     });
@@ -64,7 +64,7 @@ export default function Earth() {
 
     const cloudsMaterial = new THREE.MeshStandardMaterial({
       map: new THREE.TextureLoader().load(
-        "src/assets/earth/Earth Cloud Map Texture.jpg"
+        "/assets/earth/Earth Cloud Map Texture.jpg"
       ),
       transparent: true,
       opacity: 0.5,
@@ -77,7 +77,7 @@ export default function Earth() {
 
     const bumpsMaterial = new THREE.MeshStandardMaterial({
       map: new THREE.TextureLoader().load(
-        "src/assets/earth/Earth Bump Texture 1k.jpg"
+        "/assets/earth/Earth Bump Texture 1k.jpg"
       ),
       transparent: true,
     });
@@ -86,7 +86,7 @@ export default function Earth() {
     earthGroup.add(bumps);
 
     const iceMaterial = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/earth/Earth Ice Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/earth/Earth Ice Map.jpg"),
       transparent: true,
       opacity: 1,
     });
@@ -96,11 +96,11 @@ export default function Earth() {
 
     const glowGeometry = new THREE.SphereGeometry(2.56, 30, 30);
     const glowMaterial = new THREE.MeshStandardMaterial({
-      color: 0x1e90ff, 
-      emissive: 0x1e90ff, 
-      emissiveIntensity: 0.6, 
+      color: 0x1e90ff,
+      emissive: 0x1e90ff,
+      emissiveIntensity: 0.6,
       transparent: true,
-      opacity: 0.2, 
+      opacity: 0.2,
     });
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     scene.add(glow);
@@ -110,7 +110,7 @@ export default function Earth() {
     directionalLight.castShadow = true;
     scene.add(directionalLight);
 
-    const starsTextureUrl = "src/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,

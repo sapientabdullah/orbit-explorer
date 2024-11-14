@@ -57,7 +57,7 @@ export default function SolarSystem() {
     const textureLoader = new THREE.TextureLoader();
     const sunGeometry = new THREE.SphereGeometry(16, 30, 30);
     const sunMaterial = new THREE.MeshBasicMaterial({
-      map: textureLoader.load("src/assets/sun/Color Map.jpg"),
+      map: textureLoader.load("/assets/sun/Color Map.jpg"),
     });
     const sun = new THREE.Mesh(sunGeometry, sunMaterial);
     scene.add(sun);
@@ -114,60 +114,60 @@ export default function SolarSystem() {
 
     const mercury = createPlanets(
       3.2,
-      "src/assets/mercury/Color Map.jpg",
+      "/assets/mercury/Color Map.jpg",
       28,
       "/mercury"
     );
     const venus = createPlanets(
       5.8,
-      "src/assets/venus/Color Map.jpg",
+      "/assets/venus/Color Map.jpg",
       44,
       "/venus"
     );
     const earth = createPlanets(
       6,
-      "src/assets/earth/Earth Texture Map.jpg",
+      "/assets/earth/Earth Texture Map.jpg",
       62,
       "/earth"
     );
-    const mars = createPlanets(4, "src/assets/mars/Color Map.jpg", 78, "/mars");
+    const mars = createPlanets(4, "/assets/mars/Color Map.jpg", 78, "/mars");
     const jupiter = createPlanets(
       12,
-      "src/assets/jupiter/Jupiter Texture Map 4K.jpg",
+      "/assets/jupiter/Jupiter Texture Map 4K.jpg",
       100,
       "/jupiter"
     );
     const saturn = createPlanets(
       10,
-      "src/assets/Saturn (1).jpg",
+      "/assets/saturn/Color Map.jpg",
       138,
       "/saturn",
       {
         innerRadius: 10,
         outerRadius: 20,
-        texture: "src/assets/Saturn Ring (1).png",
+        texture: "/assets/saturn/Ring.png",
       }
     );
     const uranus = createPlanets(
       7,
-      "src/assets/uranus/Color Map.jpg",
+      "/assets/uranus/Color Map.jpg",
       176,
       "/uranus",
       {
         innerRadius: 7,
         outerRadius: 12,
-        texture: "src/assets/uranus/Ring.png",
+        texture: "/assets/uranus/Ring.png",
       }
     );
     const neptune = createPlanets(
       7,
-      "src/assets/neptune/Color Map.jpg",
+      "/assets/neptune/Color Map.jpg",
       200,
       "/neptune"
     );
     const pluto = createPlanets(
       2.8,
-      "src/assets/pluto/Color Map.jpg",
+      "/assets/pluto/Color Map.jpg",
       216,
       "/pluto"
     );
@@ -192,7 +192,7 @@ export default function SolarSystem() {
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
-    function onMouseMove(event: MouseEvent) {
+    const onMouseMove = (event: MouseEvent) => {
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -206,9 +206,9 @@ export default function SolarSystem() {
       } else {
         document.body.style.cursor = "default";
       }
-    }
+    };
 
-    function onMouseClick(event: MouseEvent) {
+    const onMouseClick = (event: MouseEvent) => {
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -225,7 +225,7 @@ export default function SolarSystem() {
           navigate(clickedPlanet.url);
         }
       }
-    }
+    };
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("click", onMouseClick);
 
@@ -266,11 +266,11 @@ export default function SolarSystem() {
     renderer.setAnimationLoop(animate);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(-2, 0, 1);
+    directionalLight.position.set(-1, 0, 1);
     directionalLight.castShadow = true;
     scene.add(directionalLight);
 
-    const starsTextureUrl = "src/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,

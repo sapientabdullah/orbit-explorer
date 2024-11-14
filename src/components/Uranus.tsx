@@ -45,13 +45,13 @@ export default function Uranus() {
 
     const geometry = new THREE.IcosahedronGeometry(2.5, 12);
     const material = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/uranus/Color Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/uranus/Color Map.jpg"),
     });
     const uranus = new THREE.Mesh(geometry, material);
     uranusGroup.add(uranus);
 
     const ringMaterial = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/uranus/Ring.png"),
+      map: new THREE.TextureLoader().load("/assets/uranus/Ring.png"),
       side: THREE.DoubleSide,
       transparent: true,
       opacity: 1.0,
@@ -66,7 +66,7 @@ export default function Uranus() {
 
     uranusGroup.add(uranusRing);
 
-    const starsTextureUrl = "src/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,

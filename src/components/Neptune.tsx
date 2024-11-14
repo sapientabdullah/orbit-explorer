@@ -45,7 +45,7 @@ export default function Neptune() {
 
     const geometry = new THREE.IcosahedronGeometry(2.5, 12);
     const material = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/neptune/Color Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/neptune/Color Map.jpg"),
     });
     const neptune = new THREE.Mesh(geometry, material);
     neptuneGroup.add(neptune);
@@ -55,7 +55,7 @@ export default function Neptune() {
     directionalLight.castShadow = true;
     scene.add(directionalLight);
 
-    const starsTextureUrl = "src/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,

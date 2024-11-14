@@ -45,13 +45,13 @@ export default function Mercury() {
 
     const geometry = new THREE.IcosahedronGeometry(2.5, 12);
     const material = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/mercury/Color Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/mercury/Color Map.jpg"),
     });
     const mercury = new THREE.Mesh(geometry, material);
     mercuryGroup.add(mercury);
 
     const bumpsMaterial = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/mercury/Bump Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/mercury/Bump Map.jpg"),
       transparent: true,
       opacity: 0.1,
     });
@@ -73,7 +73,7 @@ export default function Mercury() {
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     scene.add(glow);
 
-    const starsTextureUrl = "src/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,

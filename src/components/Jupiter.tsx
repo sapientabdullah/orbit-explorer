@@ -42,7 +42,7 @@ export default function Jupiter() {
     const geometry = new THREE.SphereGeometry(2.6, 30, 30);
     const material = new THREE.MeshStandardMaterial({
       map: new THREE.TextureLoader().load(
-        "src/assets/jupiter/Jupiter Texture Map 4K.jpg"
+        "/assets/jupiter/Jupiter Texture Map 4K.jpg"
       ),
     });
     const jupiter = new THREE.Mesh(geometry, material);
@@ -66,7 +66,7 @@ export default function Jupiter() {
     directionalLight.position.set(-2, 0, 1);
     scene.add(directionalLight);
 
-    const starsTextureUrl = "src/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,

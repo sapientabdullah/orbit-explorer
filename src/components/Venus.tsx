@@ -47,13 +47,13 @@ export default function Venus() {
 
     const geometry = new THREE.IcosahedronGeometry(2.5, 12);
     const material = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/venus/Color Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/venus/Color Map.jpg"),
     });
     const venus = new THREE.Mesh(geometry, material);
     venusGroup.add(venus);
 
     const bumpsMaterial = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/venus/Bump Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/venus/Bump Map.jpg"),
       transparent: true,
       opacity: 0.1,
     });
@@ -75,7 +75,7 @@ export default function Venus() {
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     scene.add(glow);
 
-    const starsTextureUrl = "src/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,

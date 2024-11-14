@@ -45,13 +45,13 @@ export default function Pluto() {
 
     const geometry = new THREE.IcosahedronGeometry(2.5, 12);
     const material = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/pluto/Color Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/pluto/Color Map.jpg"),
     });
     const pluto = new THREE.Mesh(geometry, material);
     plutoGroup.add(pluto);
 
     const bumpsMaterial = new THREE.MeshStandardMaterial({
-      map: new THREE.TextureLoader().load("src/assets/pluto/Bump Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/pluto/Bump Map.jpg"),
       transparent: true,
       opacity: 0.1,
     });
@@ -75,7 +75,7 @@ export default function Pluto() {
     const glow = new THREE.Mesh(glowGeometry, glowMaterial);
     scene.add(glow);
 
-    const starsTextureUrl = "src/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,

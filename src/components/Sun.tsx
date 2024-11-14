@@ -41,7 +41,7 @@ export default function Sun() {
 
     const geometry = new THREE.SphereGeometry(2.6, 30, 30);
     const material = new THREE.MeshBasicMaterial({
-      map: new THREE.TextureLoader().load("src/assets/sun/Color Map.jpg"),
+      map: new THREE.TextureLoader().load("/assets/sun/Color Map.jpg"),
     });
     const sun = new THREE.Mesh(geometry, material);
 
@@ -64,7 +64,7 @@ export default function Sun() {
     directionalLight.position.set(-2, 0, 1);
     scene.add(directionalLight);
 
-    const starsTextureUrl = "src/assets/Stars from Solar System.jpg";
+    const starsTextureUrl = "/assets/Stars from Solar System.jpg";
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     scene.background = cubeTextureLoader.load([
       starsTextureUrl,
